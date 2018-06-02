@@ -9,9 +9,12 @@ public class Player : MonoBehaviour {
     private bool isFire = true;
     public GameObject Bullet;
     private bool side = true;
+    private Ray2D ray;
+    private bool das = true;
 	// Use this for initialization
 	void Start () {
         rig = GetComponent<Rigidbody2D>();
+        
 	}
 	
 	// Update is called once per frame
@@ -21,13 +24,12 @@ public class Player : MonoBehaviour {
         side = w < 0 ? false : w > 0 ? true : side;
         if (w != 0)
         {
-            rig.AddForce(new Vector2(w * 10, 0));
+            rig.AddForce(Vector2.right * w * 10);
         }
         if (h > 0 && rig.velocity.y == 0 && onGround == true)
         {
             rig.AddForce(new Vector2(0, 300));
             onGround = false;
-            Invoke("OnGround", .2f);
         }
         if (gameObject.transform.position.x < -10.25 || gameObject.transform.position.x > 10.25)
         {
@@ -56,7 +58,19 @@ public class Player : MonoBehaviour {
             isFire = false;
             Invoke("IsFire", .2f);
         }
+        RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - .54f), Vector2.down, .1f);
+        if (hit.collider != null && das)
+        {
+            OnGround();
+            das = false;
+            Invoke("Das",1f);
+        }
 	}
+
+    private void Das()
+    {
+        das = true;
+    }
 
     private void IsFire()
     {
