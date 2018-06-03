@@ -11,7 +11,17 @@ public class Bullet : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(gameObject);
+        if (collision.tag == "BouncyWall")
+        {
+            gameObject.GetComponent<Rigidbody2D>().velocity = -gameObject.GetComponent<Rigidbody2D>().velocity;
+        }
+        else if(collision.GetComponent<BoxCollider2D>().isTrigger){
+
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
 }
