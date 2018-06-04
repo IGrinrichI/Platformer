@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
@@ -11,10 +12,14 @@ public class Player : MonoBehaviour {
     private bool side = true;
     private Ray2D ray;
     private bool das = true;
-	// Use this for initialization
-	void Start () {
+    public int degrodNum;
+    public Text degrodText;
+    public GameObject head;
+
+    // Use this for initialization
+    void Start () {
+        degrodText.text = "Дегроданство: " + degrodNum;
         rig = GetComponent<Rigidbody2D>();
-        
 	}
 	
 	// Update is called once per frame
@@ -58,12 +63,17 @@ public class Player : MonoBehaviour {
             isFire = false;
             Invoke("IsFire", .2f);
         }
-        RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - .54f), Vector2.down, .1f);
-        if (hit.collider != null && das)
+        RaycastHit2D hitdown = Physics2D.Raycast(new Vector2(transform.localPosition.x, transform.localPosition.y - .54f), Vector2.down, .1f);
+        RaycastHit2D hitside = side == true ? Physics2D.Raycast(new Vector2(transform.localPosition.x + .44f, transform.localPosition.y), Vector2.right, .1f) : Physics2D.Raycast(new Vector2(transform.localPosition.x - .44f, transform.localPosition.y), Vector2.left, .1f);
+        if (hitdown.collider != null && das)
         {
             OnGround();
             das = false;
             Invoke("Das",1f);
+            if (hitside.collider && Input.GetKey(KeyCode.E))
+            {
+                if(!hitside.collider.isTrigger) CrushHead();
+            }
         }
 	}
 
@@ -82,4 +92,10 @@ public class Player : MonoBehaviour {
         onGround = true;
     }
 
+    private void CrushHead()
+    {
+        Debug.Log("Head is Crushed!");
+        degrodNum += 10;
+        degrodText.text = "Дегроданство: " + degrodNum;
+    }
 }

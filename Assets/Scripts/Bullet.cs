@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Bullet : MonoBehaviour {
+
+    
 
     private void Start()
     {
@@ -15,12 +18,22 @@ public class Bullet : MonoBehaviour {
         {
             gameObject.GetComponent<Rigidbody2D>().velocity = -gameObject.GetComponent<Rigidbody2D>().velocity;
         }
-        else if(collision.GetComponent<BoxCollider2D>().isTrigger){
-
-        }
-        else
+        else if (collision.tag == "Player")
         {
+            Player player = collision.GetComponent<Player>();
+            player.degrodNum++;
+            player.degrodText.text = "Дегроданство: " + player.degrodNum;
             Destroy(gameObject);
+        }
+        else if(collision.GetComponent<BoxCollider2D>()){
+            if (collision.GetComponent<BoxCollider2D>().isTrigger)
+            {
+
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
