@@ -14,7 +14,6 @@ public class Player : MonoBehaviour {
     private bool das = true;
     public int degrodNum;
     public Text degrodText;
-    public GameObject head;
 
     // Use this for initialization
     void Start () {
@@ -34,14 +33,11 @@ public class Player : MonoBehaviour {
             rig.velocity = new Vector2(w * 5f, rig.velocity.y);
         }
 
-        if (h > 0 && rig.velocity.y == 0 && onGround)
+        if (h > 0 && onGround)
         {
             rig.velocity = new Vector2(rig.velocity.x, 6f);
-            onGround = false;
-            das = false;
-            Invoke("Das", 1f);
         }
-
+        //Выход за границы ограничен
         if (gameObject.transform.position.x < -10.25 || gameObject.transform.position.x > 10.25)
         {
             if (gameObject.transform.position.x < 0)
@@ -54,7 +50,7 @@ public class Player : MonoBehaviour {
             }
             rig.velocity = new Vector2(-rig.velocity.x, 0);
         }
-
+        //Стрельба
         if (Input.GetButton("Jump") && isFire == true)
         {
             if (side)
@@ -70,24 +66,8 @@ public class Player : MonoBehaviour {
             isFire = false;
             Invoke("IsFire", .2f);
         }
-
-        if (!onGround)
-        {
-            if (das)
-            {
-                RaycastHit2D hitdown = Physics2D.Raycast(new Vector2(transform.localPosition.x, transform.localPosition.y - .44f), Vector2.down, .1f);
-                if (hitdown.collider != null)
-                {
-                    if (!hitdown.collider.isTrigger)
-                    {
-                        OnGround();
-                        das = false;
-                        Invoke("Das", 1f);
-                    }
-                }
-            }
-        }
-        else
+        //Биение головой об стену (условно)
+        if (onGround)
         {
             RaycastHit2D hitside = side == true ? Physics2D.Raycast(new Vector2(transform.localPosition.x + .44f, transform.localPosition.y), Vector2.right, .1f) : Physics2D.Raycast(new Vector2(transform.localPosition.x - .44f, transform.localPosition.y), Vector2.left, .1f);
             if (hitside.collider && Input.GetKey(KeyCode.E))
@@ -97,19 +77,9 @@ public class Player : MonoBehaviour {
         }
     }
 
-    private void Das()
-    {
-        das = true;
-    }
-
     private void IsFire()
     {
         isFire = true;
-    }
-
-    private void OnGround()
-    {
-        onGround = true;
     }
 
     private void CrushHead()
