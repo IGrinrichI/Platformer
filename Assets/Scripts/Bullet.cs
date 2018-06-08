@@ -31,11 +31,7 @@ public class Bullet : MonoBehaviour {
             Destroy(gameObject);
         }
         else if(collision.GetComponent<BoxCollider2D>()){
-            if (collision.GetComponent<BoxCollider2D>().isTrigger)
-            {
-
-            }
-            else
+            if (!collision.GetComponent<BoxCollider2D>().isTrigger)
             {
                 Destroy(gameObject);
             }

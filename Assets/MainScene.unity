@@ -614,8 +614,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 740421322}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 3.8233, z: 0}
+  m_LocalScale: {x: 1, y: 1.3535419, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -696,6 +696,7 @@ GameObject:
   - component: {fileID: 1137261494}
   - component: {fileID: 1137261493}
   - component: {fileID: 1137261492}
+  - component: {fileID: 1137261496}
   m_Layer: 0
   m_Name: AirPlate
   m_TagString: Untagged
@@ -804,6 +805,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1137261496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1137261491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3ac11d758c4aa441b5ee051f6c6f510, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1152861926
 GameObject:
   m_ObjectHideFlags: 0
@@ -967,7 +979,7 @@ MonoBehaviour:
     m_Alignment: 0
     m_AlignByGeometry: 1
     m_RichText: 1
-    m_HorizontalOverflow: 0
+    m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: New Text
@@ -1399,6 +1411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d84f229631818d140b25d55a8cfcc485, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onGround: 1
   Bullet: {fileID: 1145795784294190, guid: d4970a9a3915a614686de1a8910cb907, type: 2}
   degrodNum: 0
   degrodText: {fileID: 1272652955}
