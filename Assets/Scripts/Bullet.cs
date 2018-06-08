@@ -25,6 +25,11 @@ public class Bullet : MonoBehaviour {
             player.degrodText.text = "Дегроданство: " + player.degrodNum;
             Destroy(gameObject);
         }
+        else if (collision.tag == "Enemy")
+        {
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
         else if(collision.GetComponent<BoxCollider2D>()){
             if (collision.GetComponent<BoxCollider2D>().isTrigger)
             {
