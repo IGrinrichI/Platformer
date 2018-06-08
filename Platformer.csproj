@@ -288,7 +288,9 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Airplate.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
-    <Compile Include="Assets\Scripts\Enemy.cs" />
+    <Compile Include="Assets\Scripts\CharacterBattle.cs" />
+    <Compile Include="Assets\Scripts\EnemyBattle.cs" />
+    <Compile Include="Assets\Scripts\EnemyMoving.cs" />
     <Compile Include="Assets\Scripts\Finish.cs" />
     <Compile Include="Assets\Scripts\Grounded.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />

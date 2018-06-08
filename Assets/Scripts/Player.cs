@@ -11,7 +11,6 @@ public class Player : MonoBehaviour {
     public GameObject Bullet;
     private bool side = true;
     private Ray2D ray;
-    private bool das = true;
     public int degrodNum;
     public Text degrodText;
 
