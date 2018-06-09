@@ -4,39 +4,36 @@ using UnityEngine;
 
 public class EnemyBattle : MonoBehaviour {
 
+    public int maxHitpoints;
     public int currentHitpoints;
-    public int fullHitpoints;
+    public int maxManapoints;
     public int currentManapoints;
-    public int fullManapoints;
-    public int[] basicDamage;
     public CharacterBattle target;
-    public int numberInArray;
-    public SpriteRenderer renderer;
+    public Spell[] spells;
+    public int currentSpell;
+    public Effect[] effects;
+    private SpriteRenderer rend;
 
     // Use this for initialization
     void Start () {
         currentHitpoints = 100;
-        fullHitpoints = currentHitpoints;
+        maxHitpoints = currentHitpoints;
         currentManapoints = 10;
-        fullManapoints = currentManapoints;
-        basicDamage = new int[] { 2, 5};
-        renderer = GetComponent<SpriteRenderer>();
-        renderer.color = new Vector4(0, 1, 0, 1);
+        maxManapoints = currentManapoints;
+        rend = GetComponent<SpriteRenderer>();
+        rend.color = new Vector4(0, 1, 0, 1);
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterBattle>();
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-    public void IsAttack(int hit)
+    public void IsAttacked(Spell spelled)
     {
-        currentHitpoints -= hit;
-        renderer.color = new Vector4(1 - (float)currentHitpoints / fullHitpoints, (float)currentHitpoints / fullHitpoints, 0, 1);
-        Debug.Log("Enemy" + (numberInArray + 1) + " takes " + hit + " damage");
+        currentHitpoints -= spelled.damage;
+        rend.color = new Vector4(1 - (float)currentHitpoints / maxHitpoints, (float)currentHitpoints / maxHitpoints, 0, 1);
+        Debug.Log("Enemy takes " + spelled.damage + " damage");
         if (currentHitpoints < 1)
         {
             gameObject.SetActive(false);
+            int thisTarget = target.currentTarget;
             for (int i = 0; i < target.targets.Length; i++)
             {
                 if (target.targets[i].isActiveAndEnabled)
@@ -45,11 +42,22 @@ public class EnemyBattle : MonoBehaviour {
                     break;
                 }
             }
+            if (target.currentTarget == thisTarget)
+            {
+                Debug.Log("You Win!");
+            }
         }
     }
 
     private void OnMouseDown()
     {
-        target.currentTarget = numberInArray;
+        for (int i = 0; i < target.targets.Length; i++)
+        {
+            if(target.targets[i].name == name)
+            {
+                target.currentTarget = i;
+                break;
+            }
+        }
     }
 }
