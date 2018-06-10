@@ -13,6 +13,7 @@ public class EnemyBattle : MonoBehaviour {
     public int currentSpell;
     public List<Effect> effects;
     private SpriteRenderer rend;
+    private BattleController controller;
 
     // Use this for initialization
     void Start () {
@@ -23,7 +24,9 @@ public class EnemyBattle : MonoBehaviour {
         rend = GetComponent<SpriteRenderer>();
         rend.color = new Vector4(0, 1, 0, 1);
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterBattle>();
-	}
+        controller = GameObject.FindObjectOfType<BattleController>();
+
+    }
 	
     public void IsAttacked(Spell spelled)
     {
@@ -36,8 +39,9 @@ public class EnemyBattle : MonoBehaviour {
         {
             AddEffects(spelled.effects);
         }
-        rend.color = new Vector4(1 - (float)currentHitpoints / maxHitpoints, (float)currentHitpoints / maxHitpoints, 0, 1);
+
         Debug.Log("Enemy takes " + spelled.damage + " damage");
+
         if (currentHitpoints < 1)
         {
             gameObject.SetActive(false);
@@ -54,6 +58,10 @@ public class EnemyBattle : MonoBehaviour {
             {
                 Debug.Log("You Win!");
             }
+        }
+        else
+        {
+            rend.color = new Vector4(1 - (float)currentHitpoints / maxHitpoints, (float)currentHitpoints / maxHitpoints, 0, 1);
         }
     }
 
@@ -90,5 +98,11 @@ public class EnemyBattle : MonoBehaviour {
                 }
             }
         }
+    }
+
+    public void Turn()
+    {
+        target.IsAttacked(spells[Random.Range(0,spells.Length)]);
+        controller.Invoke("Next", 1);
     }
 }

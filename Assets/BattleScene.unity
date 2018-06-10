@@ -454,7 +454,7 @@ GameObject:
   - component: {fileID: 594499551}
   m_Layer: 5
   m_Name: Spells
-  m_TagString: Untagged
+  m_TagString: Spells
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -905,8 +905,9 @@ MonoBehaviour:
   currentHitpoints: 0
   maxManapoints: 0
   currentManapoints: 0
-  target: {fileID: 1199657639}
-  spells: []
+  target: {fileID: 0}
+  spells:
+  - {fileID: 114959470932794098, guid: 1e199cb4c669aa248b493d3d0c3af924, type: 2}
   currentSpell: 0
   effects: []
 --- !u!212 &1176988515
@@ -1088,6 +1089,48 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1297819659
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1297819661}
+  - component: {fileID: 1297819660}
+  m_Layer: 0
+  m_Name: BattleController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1297819660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1297819659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a72201049f4d274f99ba970dab0019f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  persons: []
+  currentPerson: 0
+--- !u!4 &1297819661
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1297819659}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1827128597
 GameObject:
@@ -1326,7 +1369,8 @@ MonoBehaviour:
   maxManapoints: 0
   currentManapoints: 0
   target: {fileID: 0}
-  spells: []
+  spells:
+  - {fileID: 114959470932794098, guid: 1e199cb4c669aa248b493d3d0c3af924, type: 2}
   currentSpell: 0
   effects: []
 --- !u!212 &2001152793
@@ -1444,8 +1488,9 @@ MonoBehaviour:
   currentHitpoints: 0
   maxManapoints: 0
   currentManapoints: 0
-  target: {fileID: 1199657639}
-  spells: []
+  target: {fileID: 0}
+  spells:
+  - {fileID: 114959470932794098, guid: 1e199cb4c669aa248b493d3d0c3af924, type: 2}
   currentSpell: 0
   effects: []
 --- !u!212 &2053655492

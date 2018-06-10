@@ -287,6 +287,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Airplate.cs" />
+    <Compile Include="Assets\Scripts\BattleController.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
     <Compile Include="Assets\Scripts\CharacterBattle.cs" />
     <Compile Include="Assets\Scripts\Effect.cs" />

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - BouncyWall
   - Enemy
+  - Spells
   layers:
   - Default
   - TransparentFX
