@@ -11,7 +11,7 @@ public class EnemyBattle : MonoBehaviour {
     public CharacterBattle target;
     public Spell[] spells;
     public int currentSpell;
-    public Effect[] effects;
+    public List<Effect> effects;
     private SpriteRenderer rend;
 
     // Use this for initialization
@@ -28,6 +28,14 @@ public class EnemyBattle : MonoBehaviour {
     public void IsAttacked(Spell spelled)
     {
         currentHitpoints -= spelled.damage;
+        if (effects.Capacity == 0)
+        {
+            effects.AddRange(spelled.effects);
+        }
+        else
+        {
+            AddEffects(spelled.effects);
+        }
         rend.color = new Vector4(1 - (float)currentHitpoints / maxHitpoints, (float)currentHitpoints / maxHitpoints, 0, 1);
         Debug.Log("Enemy takes " + spelled.damage + " damage");
         if (currentHitpoints < 1)
@@ -57,6 +65,29 @@ public class EnemyBattle : MonoBehaviour {
             {
                 target.currentTarget = i;
                 break;
+            }
+        }
+    }
+
+    private void AddEffects(Effect[] spellEffects)
+    {
+        foreach (Effect effect in spellEffects)
+        {
+            for (int i = 0; i < effects.Capacity; i++)
+            {
+                if (effect.effectName == effects[i].effectName)
+                {
+                    if (effect.time > effects[i].time)
+                    {
+                        effects[i] = effect;
+                        break;
+                    }
+                    break;
+                }
+                if (i == effects.Capacity - 1)
+                {
+                    effects.Add(effect);
+                }
             }
         }
     }

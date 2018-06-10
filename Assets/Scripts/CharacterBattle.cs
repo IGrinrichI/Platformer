@@ -12,7 +12,7 @@ public class CharacterBattle : MonoBehaviour {
     public int currentTarget;
     public Spell[] spells;
     public int currentSpell;
-    public Effect[] effects;
+    public List<Effect> effects;
     private SpriteRenderer rend;
 
     // Use this for initialization
@@ -47,7 +47,6 @@ public class CharacterBattle : MonoBehaviour {
         if (currentHitpoints < 1)
         {
             Debug.Log("Game Over!");
-            Destroy(gameObject);
         }
     }
 
