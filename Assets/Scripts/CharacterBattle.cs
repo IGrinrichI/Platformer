@@ -16,6 +16,7 @@ public class CharacterBattle : MonoBehaviour {
     public List<Effect> effects;
     private SpriteRenderer rend;
     private BattleController controller;
+    private bool mobil;
 
     // Use this for initialization
     void Start () {
@@ -27,8 +28,9 @@ public class CharacterBattle : MonoBehaviour {
         rend.color = new Vector4(0, 1, 0, 1);
         targets = GameObject.FindObjectsOfType<EnemyBattle>();
         controller = GameObject.FindObjectOfType<BattleController>();
+        mobil = true;
     }
-
+    //Каст спелла в цель (Enemy)
     public void Attack()
     {
         if(currentSpell != 0)
@@ -45,14 +47,15 @@ public class CharacterBattle : MonoBehaviour {
         {
             button.interactable = false;
         }
+        GameObject.Find("Attack").GetComponent<Button>().interactable = false;
 
     }
-
+    //Что происходит, когда тебя атакуют каким-то спеллом
     public void IsAttacked(Spell spelled)
     {
         currentHitpoints -= spelled.damage;
 
-        if (effects.Capacity == 0)
+        if (effects.Count == 0)
         {
             effects.AddRange(spelled.effects);
         }
@@ -80,7 +83,7 @@ public class CharacterBattle : MonoBehaviour {
             rend.color = new Vector4(1 - (float)currentHitpoints / maxHitpoints, (float)currentHitpoints / maxHitpoints, 0, 1);
         }
     }
-    
+    //Выбор спелла
     public void SetSpell (string spellName)
     {
         for (int i = 0; i < spells.Length; i++)
@@ -91,12 +94,12 @@ public class CharacterBattle : MonoBehaviour {
             }
         }
     }
-
+    //Добавление эффектов от спелла
     private void AddEffects(Effect[] spellEffects)
     {
         foreach (Effect effect in spellEffects)
         {
-            for (int i = 0; i < effects.Capacity; i++)
+            for (int i = 0; i < effects.Count; i++)
             {
                 if (effect.effectName == effects[i].effectName)
                 {
@@ -107,19 +110,67 @@ public class CharacterBattle : MonoBehaviour {
                     }
                     break;
                 }
-                if (i == effects.Capacity - 1)
+                if (i == effects.Count - 1)
                 {
                     effects.Add(effect);
                 }
             }
         }
     }
-
+    //Ход
     public void Turn()
     {
-        foreach (Button button in GameObject.FindGameObjectWithTag("Spells").GetComponentsInChildren<Button>())
+        FeelEffects();
+        if(mobil == true)
         {
-            button.interactable = true;
+            foreach (Button button in GameObject.FindGameObjectWithTag("Spells").GetComponentsInChildren<Button>())
+            {
+                button.interactable = true;
+            }
+            GameObject.Find("Attack").GetComponent<Button>().interactable = true;
+        }
+        else
+        {
+            mobil = true;
+            controller.Invoke("Next", 1);
+        }
+        
+    }
+    //Проверка влияющих эффектов
+    private void FeelEffects()
+    {
+        if (effects.Count != 0)
+        {
+            foreach (Effect effect in effects)
+            {
+                if (effects.Count != 0)
+                {
+                    //Чот вроде свича
+                    for (; ; )
+                    {
+                        if (effect.effectName == "Stun")
+                        {
+                            mobil = false;
+                            effect.time--;
+                            break;
+                        }
+                        else if (effect.effectName == "NonEffect")
+                        {
+                            break;
+                        }
+                        Debug.Log("I don't know this effect");
+                        break;
+                    }
+                }
+            }
+            //Очистка эффектов, чьё время действия кончилось
+            for (int i = effects.Count - 1; i > -1; i--)
+            {
+                if (effects[i].time == 0)
+                {
+                    effects.Remove(effects[i]);
+                }
+            }
         }
     }
 }

@@ -51,3 +51,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0ad916bb4fe42b4293424a93ee4d990, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  effectName: NonEffect
+  time: 1
