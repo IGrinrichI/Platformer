@@ -28,6 +28,14 @@ public class EnemyBattle : MonoBehaviour {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterBattle>();
         controller = GameObject.FindObjectOfType<BattleController>();
         mobil = true;
+        for (int i = 0; i < spells.Length; i++)
+        {
+            spells[i] = Instantiate(spells[i]);
+            for (int j = 0; j < spells[i].effects.Length; j++)
+            {
+                spells[i].effects[j] = Instantiate(spells[i].effects[j]);
+            }
+        }
     }
 	
     public void IsAttacked(Spell spelled)
@@ -35,7 +43,10 @@ public class EnemyBattle : MonoBehaviour {
         currentHitpoints -= spelled.damage;
         if (effects.Count == 0)
         {
-            effects.AddRange(spelled.effects);
+            foreach (Effect effect in spelled.effects)
+            {
+                effects.Add(Instantiate(effect));
+            }
         }
         else
         {
@@ -89,14 +100,14 @@ public class EnemyBattle : MonoBehaviour {
                 {
                     if (effect.time > effects[i].time)
                     {
-                        effects[i] = effect;
+                        effects[i] = Instantiate(effect);
                         break;
                     }
                     break;
                 }
                 if (i == effects.Count - 1)
                 {
-                    effects.Add(effect);
+                    effects.Add(Instantiate(effect));
                 }
             }
         }
@@ -148,6 +159,7 @@ public class EnemyBattle : MonoBehaviour {
             {
                 if (effects[i].time == 0)
                 {
+                    Destroy(effects[i].gameObject);
                     effects.Remove(effects[i]);
                 }
             }

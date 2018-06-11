@@ -29,6 +29,14 @@ public class CharacterBattle : MonoBehaviour {
         targets = GameObject.FindObjectsOfType<EnemyBattle>();
         controller = GameObject.FindObjectOfType<BattleController>();
         mobil = true;
+        for (int i = 0; i < spells.Length; i++)
+        {
+            spells[i] = Instantiate(spells[i]);
+            for (int j = 0; j < spells[i].effects.Length; j++)
+            {
+                spells[i].effects[j] = Instantiate(spells[i].effects[j]);
+            }
+        }
     }
     //Каст спелла в цель (Enemy)
     public void Attack()
@@ -38,17 +46,17 @@ public class CharacterBattle : MonoBehaviour {
             targets[currentTarget].IsAttacked(spells[currentSpell]);
             currentSpell = 0;
             controller.Invoke("Next", 1);
+
+            foreach (Button button in GameObject.FindGameObjectWithTag("Spells").GetComponentsInChildren<Button>())
+            {
+                button.interactable = false;
+            }
+            GameObject.Find("Attack").GetComponent<Button>().interactable = false;
         }
         else
         {
             Debug.Log("Choose spell!");
         }
-        foreach(Button button in GameObject.FindGameObjectWithTag("Spells").GetComponentsInChildren<Button>())
-        {
-            button.interactable = false;
-        }
-        GameObject.Find("Attack").GetComponent<Button>().interactable = false;
-
     }
     //Что происходит, когда тебя атакуют каким-то спеллом
     public void IsAttacked(Spell spelled)
@@ -105,14 +113,14 @@ public class CharacterBattle : MonoBehaviour {
                 {
                     if (effect.time > effects[i].time)
                     {
-                        effects[i] = effect;
+                        effects[i] = Instantiate(effect);
                         break;
                     }
                     break;
                 }
                 if (i == effects.Count - 1)
                 {
-                    effects.Add(effect);
+                    effects.Add(Instantiate(effect));
                 }
             }
         }
@@ -168,6 +176,7 @@ public class CharacterBattle : MonoBehaviour {
             {
                 if (effects[i].time == 0)
                 {
+                    Destroy(effects[i].gameObject);
                     effects.Remove(effects[i]);
                 }
             }

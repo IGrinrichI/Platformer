@@ -54,5 +54,4 @@ MonoBehaviour:
   damage: 1000
   spellName: Kill
   spellDescription: Destroy
-  effects:
-  - {fileID: 114840482938833142, guid: 1d78f42369734294c8912831aca3d74b, type: 2}
+  effects: []
