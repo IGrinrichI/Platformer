@@ -60,16 +60,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Airplate.cs" />
-    <Compile Include="Assets\Scripts\BattleController.cs" />
+    <Compile Include="Assets\Scripts\Battle\BattleController.cs" />
+    <Compile Include="Assets\Scripts\Battle\CharacterBattle.cs" />
+    <Compile Include="Assets\Scripts\Battle\Effect.cs" />
+    <Compile Include="Assets\Scripts\Battle\EnemyBattle.cs" />
+    <Compile Include="Assets\Scripts\Battle\Spell.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
-    <Compile Include="Assets\Scripts\CharacterBattle.cs" />
-    <Compile Include="Assets\Scripts\Effect.cs" />
-    <Compile Include="Assets\Scripts\EnemyBattle.cs" />
     <Compile Include="Assets\Scripts\EnemyMoving.cs" />
     <Compile Include="Assets\Scripts\Finish.cs" />
     <Compile Include="Assets\Scripts\Grounded.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
-    <Compile Include="Assets\Scripts\Spell.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/Public/Documents/Unity Projects/Platformer/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

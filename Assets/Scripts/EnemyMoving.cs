@@ -52,7 +52,7 @@ public class EnemyMoving : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Player")
         {
-            collision.transform.position = Vector3.zero;
+            UnityEngine.SceneManagement.SceneManager.LoadScene("BattleScene");
         }
     }
 }
