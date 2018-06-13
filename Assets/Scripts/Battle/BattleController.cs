@@ -5,16 +5,25 @@ using UnityEngine.SceneManagement;
 
 public class BattleController : MonoBehaviour {
 
-    public List<GameObject> persons;
-    public int currentPerson;
+    static List<GameObject> persons = new List<GameObject>();
+    static int currentPerson = 0;
 
-	void Start () {
-        currentPerson = 0;
+    private void Start () {
+        if (persons.Count != 0)
+        {
+            currentPerson = 0;
+            foreach (GameObject person in persons)
+            {
+                Destroy(person.gameObject);
+            }
+            persons.RemoveRange(0, persons.Count);
+        }
+
         persons.AddRange(GameObject.FindGameObjectsWithTag("Player"));
         persons.AddRange(GameObject.FindGameObjectsWithTag("Enemy"));
 	}
 	
-    public void Next()
+    public static void Next()
     {
         currentPerson = (currentPerson + 1) % persons.Capacity;
         if (persons[currentPerson].tag == "Player")
@@ -36,7 +45,7 @@ public class BattleController : MonoBehaviour {
         }
     }
 
-    public void SwitchTo(string sceneName)
+    public static void SwitchTo(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
     }

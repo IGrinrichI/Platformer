@@ -15,7 +15,6 @@ public class CharacterBattle : MonoBehaviour {
     public int currentSpell;
     public List<Effect> effects;
     private SpriteRenderer rend;
-    private BattleController controller;
     private bool mobil;
 
     // Use this for initialization
@@ -27,7 +26,6 @@ public class CharacterBattle : MonoBehaviour {
         rend = GetComponent<SpriteRenderer>();
         rend.color = new Vector4(0, 1, 0, 1);
         targets = GameObject.FindObjectsOfType<EnemyBattle>();
-        controller = GameObject.FindObjectOfType<BattleController>();
         mobil = true;
         for (int i = 0; i < spells.Length; i++)
         {
@@ -45,7 +43,7 @@ public class CharacterBattle : MonoBehaviour {
         {
             targets[currentTarget].IsAttacked(spells[currentSpell]);
             currentSpell = 0;
-            controller.Invoke("Next", 1);
+            Invoke("Next", 1);
 
             foreach (Button button in GameObject.FindGameObjectWithTag("Spells").GetComponentsInChildren<Button>())
             {
@@ -140,10 +138,16 @@ public class CharacterBattle : MonoBehaviour {
         else
         {
             mobil = true;
-            controller.Invoke("Next", 1);
+            Invoke("Next", 1);
         }
         
     }
+
+    private void Next()
+    {
+        BattleController.Next();
+    }
+
     //Проверка влияющих эффектов
     private void FeelEffects()
     {

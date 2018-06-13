@@ -14,7 +14,6 @@ public class EnemyBattle : MonoBehaviour {
     public int currentSpell;
     public List<Effect> effects;
     private SpriteRenderer rend;
-    private BattleController controller;
     private bool mobil;
 
     // Use this for initialization
@@ -26,7 +25,6 @@ public class EnemyBattle : MonoBehaviour {
         rend = GetComponent<SpriteRenderer>();
         rend.color = new Vector4(0, 1, 0, 1);
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterBattle>();
-        controller = GameObject.FindObjectOfType<BattleController>();
         mobil = true;
         for (int i = 0; i < spells.Length; i++)
         {
@@ -70,7 +68,7 @@ public class EnemyBattle : MonoBehaviour {
             if (target.currentTarget == thisTarget)
             {
                 Debug.Log("You Win!");
-                controller.SwitchTo("MainScene");
+                BattleController.SwitchTo("MainScene");
             }
         }
         else
@@ -120,13 +118,18 @@ public class EnemyBattle : MonoBehaviour {
         if (mobil == true)
         {
             target.IsAttacked(spells[Random.Range(0, spells.Length)]);
-            controller.Invoke("Next", 1);
+            Invoke("Next", 1);
         }
         else
         {
             mobil = true;
-            controller.Invoke("Next", 1);
+            Invoke("Next", 1);
         }
+    }
+
+    private void Next()
+    {
+        BattleController.Next();
     }
     //Проверка влияющих эффектов
     private void FeelEffects()

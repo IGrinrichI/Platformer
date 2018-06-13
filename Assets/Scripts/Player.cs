@@ -68,7 +68,7 @@ public class Player : MonoBehaviour {
         //Биение головой об стену (условно)
         if (onGround)
         {
-            RaycastHit2D hitside = side == true ? Physics2D.Raycast(new Vector2(transform.localPosition.x + .44f, transform.localPosition.y), Vector2.right, .1f) : Physics2D.Raycast(new Vector2(transform.localPosition.x - .44f, transform.localPosition.y), Vector2.left, .1f);
+            RaycastHit2D hitside = side == true ? Physics2D.Raycast(new Vector2(transform.localPosition.x + .41f, transform.localPosition.y), Vector2.right, .1f) : Physics2D.Raycast(new Vector2(transform.localPosition.x - .41f, transform.localPosition.y), Vector2.left, .1f);
             if (hitside.collider && Input.GetKey(KeyCode.E))
             {
                 if (!hitside.collider.isTrigger) CrushHead();
