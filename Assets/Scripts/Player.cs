@@ -13,12 +13,14 @@ public class Player : MonoBehaviour {
     private Ray2D ray;
     public int degrodNum;
     public Text degrodText;
+    private Vector3 prevpos;
+    
 
     // Use this for initialization
     void Start () {
         degrodText.text = "Дегроданство: " + degrodNum;
         rig = GetComponent<Rigidbody2D>();
-	}
+    }
 
     // Update is called once per frame
     void Update()
