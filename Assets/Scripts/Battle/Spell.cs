@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spell : MonoBehaviour {
+[CreateAssetMenu(fileName = "NewSpell", menuName = "Spell")]
+public class Spell : ScriptableObject {
 
     public int damage;
     public string spellName;

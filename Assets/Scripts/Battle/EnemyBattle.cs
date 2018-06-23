@@ -163,7 +163,7 @@ public class EnemyBattle : MonoBehaviour {
             {
                 if (effects[i].time == 0)
                 {
-                    Destroy(effects[i].gameObject);
+                    Destroy(effects[i]);
                     effects.Remove(effects[i]);
                 }
             }

@@ -908,7 +908,7 @@ MonoBehaviour:
   currentManapoints: 0
   target: {fileID: 0}
   spells:
-  - {fileID: 114959470932794098, guid: 1e199cb4c669aa248b493d3d0c3af924, type: 2}
+  - {fileID: 11400000, guid: 84edd407b99869d41af4d55a8430e629, type: 2}
   currentSpell: 0
   effects: []
 --- !u!212 &1176988515
@@ -1029,10 +1029,10 @@ MonoBehaviour:
   targets: []
   currentTarget: 0
   spells:
-  - {fileID: 114311584144123648, guid: 3b1a3b39c65ece54795a7476921b7885, type: 2}
-  - {fileID: 114959470932794098, guid: 1e199cb4c669aa248b493d3d0c3af924, type: 2}
-  - {fileID: 114927277536012878, guid: e6ba0a208e71ab04399184fbd9c38049, type: 2}
-  - {fileID: 114072929117957268, guid: c3e2e2ce4e3d1e44c9c3203e8275d7b9, type: 2}
+  - {fileID: 11400000, guid: 9c7a9d939978f8e499ca2f28a91d60f7, type: 2}
+  - {fileID: 11400000, guid: 84edd407b99869d41af4d55a8430e629, type: 2}
+  - {fileID: 11400000, guid: a6fc978a9851d974ba533322c12f30aa, type: 2}
+  - {fileID: 11400000, guid: f5adceaeac8b960468f66263b525f87f, type: 2}
   currentSpell: 0
   effects: []
 --- !u!212 &1199657640
@@ -1180,8 +1180,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a72201049f4d274f99ba970dab0019f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  persons: []
-  currentPerson: 0
 --- !u!4 &1297819661
 Transform:
   m_ObjectHideFlags: 0
@@ -1433,7 +1431,7 @@ MonoBehaviour:
   currentManapoints: 0
   target: {fileID: 0}
   spells:
-  - {fileID: 114959470932794098, guid: 1e199cb4c669aa248b493d3d0c3af924, type: 2}
+  - {fileID: 11400000, guid: 84edd407b99869d41af4d55a8430e629, type: 2}
   currentSpell: 0
   effects: []
 --- !u!212 &2001152793
@@ -1554,7 +1552,7 @@ MonoBehaviour:
   currentManapoints: 0
   target: {fileID: 0}
   spells:
-  - {fileID: 114959470932794098, guid: 1e199cb4c669aa248b493d3d0c3af924, type: 2}
+  - {fileID: 11400000, guid: 84edd407b99869d41af4d55a8430e629, type: 2}
   currentSpell: 0
   effects: []
 --- !u!212 &2053655492

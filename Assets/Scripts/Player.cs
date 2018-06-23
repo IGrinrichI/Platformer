@@ -14,6 +14,7 @@ public class Player : MonoBehaviour {
     public int degrodNum;
     public Text degrodText;
     private Vector3 prevpos;
+    public GameObject inventory;
     
 
     // Use this for initialization
@@ -75,6 +76,11 @@ public class Player : MonoBehaviour {
             {
                 if (!hitside.collider.isTrigger) CrushHead();
             }
+        }
+        //Инвентарь
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            inventory.SetActive(inventory.activeSelf ^ true);
         }
     }
 
