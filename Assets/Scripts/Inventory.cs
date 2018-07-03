@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+<<<<<<< HEAD
 public class Inventory : MonoBehaviour, IBeginDragHandler, IDragHandler, IDropHandler {
 
     private Vector3 homePosition;
@@ -11,10 +12,17 @@ public class Inventory : MonoBehaviour, IBeginDragHandler, IDragHandler, IDropHa
     public Transform par;
     public Item item;
     private Transform inventory;
+=======
+public class Inventory : MonoBehaviour, IDragHandler, IDropHandler {
+
+    private Vector3 homePosition;
+    public GameObject[] positions;
+>>>>>>> master
 
     private void Start()
     {
         homePosition = transform.position;
+<<<<<<< HEAD
         positions = GameObject.FindGameObjectsWithTag("ItemPosition");
         for (int i = 0; i < positions.Length; i++)
         {
@@ -41,6 +49,8 @@ public class Inventory : MonoBehaviour, IBeginDragHandler, IDragHandler, IDropHa
     {
         par = transform.parent;
         transform.parent = inventory;
+=======
+>>>>>>> master
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -50,6 +60,7 @@ public class Inventory : MonoBehaviour, IBeginDragHandler, IDragHandler, IDropHa
 
     public void OnDrop(PointerEventData eventData)
     {
+<<<<<<< HEAD
         for(int i = 0; i < positions.Length; i++)
         {
             if (Mathf.Abs(Mathf.Abs(positions[i].transform.position.x) - Mathf.Abs(transform.position.x)) < 25 && Mathf.Abs(Mathf.Abs(positions[i].transform.position.y) - Mathf.Abs(transform.position.y)) < 25)
@@ -76,4 +87,16 @@ public class Inventory : MonoBehaviour, IBeginDragHandler, IDragHandler, IDropHa
         transform.position = homePosition;
     }
 
+=======
+        foreach(GameObject pos in positions)
+        {
+            if (Mathf.Abs(Mathf.Abs(pos.transform.position.x) - Mathf.Abs(transform.position.x)) < 50 && Mathf.Abs(Mathf.Abs(pos.transform.position.y) - Mathf.Abs(transform.position.y)) < 50)
+            {
+                homePosition = pos.transform.position;
+                break;
+            }
+        }
+        transform.position = homePosition;
+    }
+>>>>>>> master
 }

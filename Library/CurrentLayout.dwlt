@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 6}
-  m_MinSize: {x: 950, y: 300}
+  m_MinSize: {x: 950, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -40,8 +40,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 30
+<<<<<<< HEAD
     width: 1280
     height: 667
+=======
+    width: 1920
+    height: 947
+>>>>>>> master
   m_MinSize: {x: 683, y: 492}
   m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
@@ -113,9 +118,15 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 396
     width: 1003
     height: 271
+=======
+    y: 573
+    width: 1531
+    height: 374
+>>>>>>> master
   m_MinSize: {x: 232, y: 271}
   m_MaxSize: {x: 10002, y: 10021}
   m_ActualView: {fileID: 15}
@@ -143,9 +154,15 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1280
     height: 717
   m_MinSize: {x: 950, y: 300}
+=======
+    width: 1920
+    height: 997
+  m_MinSize: {x: 950, y: 542}
+>>>>>>> master
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &7
 MonoBehaviour:
@@ -206,8 +223,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1003
     height: 667
+=======
+    width: 1531
+    height: 947
+>>>>>>> master
   m_MinSize: {x: 406, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
@@ -396,24 +418,31 @@ MonoBehaviour:
   m_LastProjectPath: C:\Users\kiril\Documents\Platformer
   m_IsLocked: 0
   m_FolderTreeState:
+<<<<<<< HEAD
     scrollPos: {x: 0, y: 27}
     m_SelectedIDs: 5c250000
     m_LastClickedID: 9564
     m_ExpandedIDs: 00000000022500002a250000522500005c25000000ca9a3bffffff7f
+=======
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 5c290000
+    m_LastClickedID: 10588
+    m_ExpandedIDs: 000000005c29000078290000362a0000822a000000ca9a3bffffff7f
+>>>>>>> master
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: Skills
+      m_OriginalName: Skills
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 10616
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 5}
     m_SearchString: 
@@ -427,7 +456,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< HEAD
     m_ExpandedIDs: 00000000022500002a250000522500005c250000
+=======
+    m_ExpandedIDs: 000000005c29000078290000362a0000822a0000
+>>>>>>> master
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -454,7 +487,11 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
+<<<<<<< HEAD
     m_HadKeyboardFocusLastEvent: 0
+=======
+    m_HadKeyboardFocusLastEvent: 1
+>>>>>>> master
     m_ExpandedInstanceIDs: c6230000000000004a280000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -542,10 +579,17 @@ MonoBehaviour:
     width: 252
     height: 375
   m_TreeViewState:
+<<<<<<< HEAD
     scrollPos: {x: 0, y: 218}
     m_SelectedIDs: 3069ffff
     m_LastClickedID: -38608
     m_ExpandedIDs: 5625ffff48f5ffffe6fbffff000000005226000092260000
+=======
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 
+    m_LastClickedID: 0
+    m_ExpandedIDs: 1afff6ffdc49f7ff86eaf7ff4edefcff08d7fdffce96ffff94bdffff2ce3fffff0fbffff00000000ae2d0000
+>>>>>>> master
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -595,14 +639,24 @@ MonoBehaviour:
     width: 745
     height: 375
   m_SceneLighting: 1
+<<<<<<< HEAD
   lastFramingTime: 143.65623339200852
+=======
+  lastFramingTime: 15994.087485221758
+>>>>>>> master
   m_2DMode: 1
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
+<<<<<<< HEAD
     m_Target: {x: 372.5, y: 179, z: 0}
     speed: 2
     m_Value: {x: 372.5, y: 179, z: 0}
+=======
+    m_Target: {x: 630.9698, y: 249.57654, z: 20.387968}
+    speed: 2
+    m_Value: {x: 630.9698, y: 249.57654, z: 20.387968}
+>>>>>>> master
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -629,9 +683,15 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
+<<<<<<< HEAD
     m_Target: 576.49036
     speed: 2
     m_Value: 576.49036
+=======
+    m_Target: 1082.3201
+    speed: 2
+    m_Value: 1082.3201
+>>>>>>> master
   m_Ortho:
     m_Target: 1
     speed: 2

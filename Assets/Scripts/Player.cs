@@ -13,13 +13,19 @@ public class Player : MonoBehaviour {
     private Ray2D ray;
     public int degrodNum;
     public Text degrodText;
+<<<<<<< HEAD
     public GameObject inventory;
+=======
+    private Vector3 prevpos;
+    public GameObject inventory;
+    
+>>>>>>> master
 
     // Use this for initialization
     void Start () {
         degrodText.text = "Дегроданство: " + degrodNum;
         rig = GetComponent<Rigidbody2D>();
-	}
+    }
 
     // Update is called once per frame
     void Update()
@@ -75,6 +81,10 @@ public class Player : MonoBehaviour {
                 if (!hitside.collider.isTrigger) CrushHead();
             }
         }
+<<<<<<< HEAD
+=======
+        //Инвентарь
+>>>>>>> master
         if (Input.GetKeyDown(KeyCode.I))
         {
             inventory.SetActive(inventory.activeSelf ^ true);
