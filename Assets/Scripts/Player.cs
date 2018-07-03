@@ -13,6 +13,7 @@ public class Player : MonoBehaviour {
     private Ray2D ray;
     public int degrodNum;
     public Text degrodText;
+    public GameObject inventory;
 
     // Use this for initialization
     void Start () {
@@ -73,6 +74,10 @@ public class Player : MonoBehaviour {
             {
                 if (!hitside.collider.isTrigger) CrushHead();
             }
+        }
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            inventory.SetActive(inventory.activeSelf ^ true);
         }
     }
 

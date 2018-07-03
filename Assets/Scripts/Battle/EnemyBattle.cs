@@ -84,6 +84,7 @@ public class EnemyBattle : MonoBehaviour {
             if(target.targets[i].name == name)
             {
                 target.currentTarget = i;
+                target.pointer.position = transform.position;
                 break;
             }
         }

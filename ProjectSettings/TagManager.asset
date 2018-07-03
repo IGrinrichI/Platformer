@@ -7,6 +7,8 @@ TagManager:
   - BouncyWall
   - Enemy
   - Spells
+  - Item
+  - ItemPosition
   layers:
   - Default
   - TransparentFX

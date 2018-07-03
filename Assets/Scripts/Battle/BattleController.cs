@@ -7,8 +7,11 @@ public class BattleController : MonoBehaviour {
 
     static List<GameObject> persons = new List<GameObject>();
     static int currentPerson = 0;
+    public GameObject p;
+    static Transform point;
 
     private void Start () {
+        point = p.GetComponent<Transform>();
         if (persons.Count != 0)
         {
             currentPerson = 0;
@@ -21,6 +24,7 @@ public class BattleController : MonoBehaviour {
 
         persons.AddRange(GameObject.FindGameObjectsWithTag("Player"));
         persons.AddRange(GameObject.FindGameObjectsWithTag("Enemy"));
+        point.position = persons[0].transform.position + Vector3.up * 2;
 	}
 	
     public static void Next()
@@ -43,6 +47,7 @@ public class BattleController : MonoBehaviour {
                 Next();
             }
         }
+        point.position = persons[currentPerson].transform.position + Vector3.up * 2;
     }
 
     public static void SwitchTo(string sceneName)

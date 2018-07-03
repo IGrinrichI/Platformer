@@ -16,6 +16,7 @@ public class CharacterBattle : MonoBehaviour {
     public List<Effect> effects;
     private SpriteRenderer rend;
     private bool mobil;
+    public Transform pointer;
 
     // Use this for initialization
     void Start () {
